@@ -1,13 +1,115 @@
 @import 'utility';
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
 
 $base-text-size: 16px;
 $base-font-family: sans-serif;
 
 html {
-  @include full-height;
+  min-height: 100%;
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(181, 226, 255);
   margin: 0;
+  height: 100%;
+  width: 100%;
   font: $base-text-size / 1 $base-font-family;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  margin: 0.6em;
+
+  h1 {
+    font-family: 'Roboto Slab', serif;
+    font-size: 3em;
+    color: $niceWhite;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex: 1;
+  width: 100%;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type=text] {
+  border: 0;
+  width: 200px;
+  height: 60px;
+  margin: 0.3em auto;
+  font-size: 2em;
+  color: $niceBlack;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 195);
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+textarea {
+  border: 0;
+  outline: 0;
+  width: 200px;
+  height: 60px;
+  margin: 0.3em auto;
+  font-size: 2em;
+  color: $niceBlack;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 195);
+}
+
+input[type=submit] {
+  width: 200px;
+  font-size: 2em;
+  margin: 0.5em auto;
+  outline: 0;
+}
+
+.userInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em auto;
+}
+
+.userSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em auto;
+}
+
+footer {
+  height: 5vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
