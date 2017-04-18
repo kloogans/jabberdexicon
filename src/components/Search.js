@@ -13,8 +13,8 @@ class Search extends Component {
   render () {
     return (
       <div className={styles.userSearch}>
-        <form onFocus={this._focus}>
-          <input onFocus={this._submit} type='text' ref='searchText' placeholder='Search' />
+        <form onSubmit={this._submit}>
+          <input onFocus={this._focus} type='text' ref='searchText' placeholder='Search' />
           <input type='submit' value='Go' />
         </form>
       </div>

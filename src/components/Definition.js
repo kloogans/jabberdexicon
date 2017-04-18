@@ -5,7 +5,7 @@ class Definition extends Component {
     return (
       <div className='info'>
         <h3>Word: {this.props.term}</h3>
-        <p>Definition: {this.props.definition}</p>
+        <p> Definition: {this.props.def}</p>
       </div>
     )
   }

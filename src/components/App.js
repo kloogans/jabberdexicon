@@ -8,9 +8,8 @@ const token = 'example'
 
 class App extends Component {
   state = {
-    active: {},
-    items: {},
-    word: []
+    active: [],
+    search: []
   }
 
   // When this react component mounts
@@ -46,8 +45,7 @@ class App extends Component {
     }).then(r => r.json())
       .then(data => {
         this.setState({
-          active: data,
-          word: data.term
+          active: data
         })
         console.log(data)
       })
@@ -69,8 +67,8 @@ class App extends Component {
       </header>
       <main>
         <NewWord term={this.state.term} addWord={this.addWord} />
-        <Search />
-        <Definition def={this.state.word} addDef={this.addDef} />
+        <Search searchWord={this.searchWord} />
+        <Definition term={this.state.active.term} def={this.state.active.definition} />
       </main>
       <footer>
         <div className={styles.copyright}>
