@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
+// import { BrowserRouter as Router } from 'react-router-dom'
+import Search from './Search'
+import Definition from './Definition'
+import NewWord from './NewWord'
+import styles from '../styles/App.scss'
+const token = 'example'
 
 class App extends Component {
   state = {
-    items: []
+    active: {},
+    items: {}
   }
 
   // When this react component mounts
   componentDidMount () {
     // the URL to "get" todo items
-    const url = 'https://jabberdexicon.herokuapp.com/entries?access_token=banapple'
+    const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
     // make an AJAX request to that URL
     window.fetch(url)
       // fetch returns a promsise, which yeilds the "response", we call it 'r'
@@ -18,64 +25,53 @@ class App extends Component {
       .then(data => {
         // use the data as the state for our items
         this.setState({
-          info: data
+          active: data
         })
+        console.log(data)
       })
   }
 
-  addItem (newItem) {
-    const url = 'https://one-list-api.herokuapp.com/items?access_token=banapple'
+  addWord = (newTerm, newDef) => {
+    const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
     window.fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        item: {
-          text: newItem
+        'entry': {
+          'term': newTerm,
+          'definition': newDef
         }
       })
     }).then(r => r.json())
       .then(data => {
         this.setState({
-          items: [...this.state.items, data]
+          active: data
         })
+        console.log(data)
       })
   }
 
-  _submit = (event) => {
-    event.preventDefault()
-    const input = this.refs.definition
-    this.addItem(input.value)
-    input.value = ''
+  searchWord = searchTerm => {
+    const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
+    window.fetch(url)
+    .then(r => r.json())
+    .then(data => {
+      console.log(data)
+    })
   }
 
   render () {
-    return <div className='App'>
+    return <div className={styles.App}>
       <header>
         <h1>Jabberdexicon</h1>
       </header>
       <main>
-        <div className='forms'>
-          <div className='userInput'>
-            <form onSubmit={this._submit}>
-              <input type='text' name='word' placeholder='Word' ref='word' />
-              <textarea name='definition' placeholder='Definition' ref='definition' />
-              <input type='submit' />
-            </form>
-          </div>
-          <div className='userSearch'>
-            <form>
-              <input type='text' name='search' placeholder='Search' />
-              <input type='submit' value='Go' />
-            </form>
-          </div>
-        </div>
-        <div className='info'>
-          <h3>Word:</h3>
-          <p>Definition</p>
-        </div>
+        <NewWord addWord={this.addWord} />
+        <Search />
+        <Definition />
       </main>
       <footer>
-        <div className='copyright'>
+        <div className={styles.copyright}>
           <p>&copy; James O'Brien 2017 Fuck Yea</p>
         </div>
       </footer>

@@ -1,24 +1,4 @@
 @import 'utility';
-@import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
-$base-text-size: 16px;
-$base-font-family: sans-serif;
-
-html {
-  min-height: 100%;
-}
-
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgb(181, 226, 255);
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  font: $base-text-size / 1 $base-font-family;
-}
 
 .App {
   display: flex;
