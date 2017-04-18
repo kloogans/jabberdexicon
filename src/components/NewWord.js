@@ -5,6 +5,8 @@ class NewWord extends Component {
   _submit = e => {
     e.preventDefault()
     this.props.addWord(this.refs.addWord.value, this.refs.addDef.value)
+    this.refs.addWord.value = ''
+    this.refs.addDef.value = ''
   }
 
   _focus = (e) => {
