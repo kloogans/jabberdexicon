@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
-  Route,
-  Link
+  Route
 } from 'react-router-dom'
 import Search from './Search'
 import Result from './Result'
 import NewWord from './NewWord'
+import WordList from './Wordlist'
 const token = 'example'
 
 class App extends Component {
@@ -82,13 +82,11 @@ class App extends Component {
           </div>
         </header>
         <main>
-          <Route exact path='/' render={() => <Search searchWord={this.searchWord} clicked={this.state.clicked} />} />
+          <Search searchWord={this.searchWord} clicked={this.state.clicked} />
           <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} clicked={this.state.clicked} exit={this.exit} />
-          {/* <Search searchWord={this.searchWord} clicked={this.state.clicked} /> */}
-          {/* <Route exact path='/' component={Search} /> */}
-          {/* <Route path='/entries/:id' component={Result} /> */}
-          <Route path='/entries/:id' render={() => <Result term={this.state.active.term} def={this.state.definition} clicked={this.state.clicked} active={this.state.active} />} />
-          {/* <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} active={this.state.active} /> */}
+          <Route path='/entries/:slug' component={Result} />
+
+          <WordList active={this.state.active} />
         </main>
         <footer>
           <div className='copyright'>
