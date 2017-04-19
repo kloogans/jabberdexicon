@@ -24,8 +24,10 @@ class NewWord extends Component {
               <form onSubmit={this._submit}>
                 <textarea className='wordInput' onFocus={this._focus} ref='addWord' placeholder='Word' />
                 <textarea className='defInput' onFocus={this._focus} ref='addDef' placeholder='Definition' />
-                <button className='defSubmit' onClick={this._exit} type='submit'>Submit</button>
-                <button onClick={this._exit} className='exitBtn'><i className='fa fa-close' /> Close</button>
+                <div className='controlBtns'>
+                  <button className='defSubmit' onClick={this._exit} type='submit'><i className='fa fa-check' /></button>
+                  <button onClick={this._exit} className='exitBtn'><i className='fa fa-close' /> </button>
+                </div>
               </form>
             </div>
           </div>

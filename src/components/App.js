@@ -16,23 +16,19 @@ class App extends Component {
     clicked: false
   }
 
-  // When this react component mounts
-  componentDidMount () {
-    // the URL to "get" todo items
+  loadWords () {
     const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
-    // make an AJAX request to that URL
     window.fetch(url)
-      // fetch returns a promsise, which yeilds the "response", we call it 'r'
-      // The response has a method json(), that returns another promise
-      .then(r => r.json())
-      // then JSON is done parsing, the promise will yeild the "data"
-      .then(data => {
-        // use the data as the state for our items
-        this.setState({
-          active: data
-        })
-        console.log(data)
+    .then(r => r.json())
+    .then(data => {
+      this.setState({
+        active: data
       })
+    })
+  }
+
+  componentDidMount () {
+    this.loadWords()
   }
 
   addWord = (newTerm, newDef) => {
@@ -48,19 +44,18 @@ class App extends Component {
       })
     }).then(r => r.json())
       .then(data => {
-        this.setState({
-          active: data
-        })
+        this.loadWords()
         console.log(data)
       })
   }
 
-  searchWord = searchTerm => {
+  searchWord = (searchTerm) => {
     const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
     window.fetch(url)
     .then(r => r.json())
     .then(data => {
-      console.log(data)
+      const searchFilter = data.filter(item => item.term.includes(searchTerm))
+      console.log(searchFilter)
     })
   }
 
@@ -87,6 +82,7 @@ class App extends Component {
           </div>
         </header>
         <main>
+          {/* <Route exact path='/' component={Home} */}
           <Search searchWord={this.searchWord} clicked={this.state.clicked} />
           <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} clicked={this.state.clicked} exit={this.exit} />
           <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} active={this.state.active} />

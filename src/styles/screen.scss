@@ -146,10 +146,19 @@ textarea.defInput {
   background-color: rgb(181, 228, 255);
 }
 
-button.defSubmit {
+.controlBtns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+button.defSubmit,
+button.exitBtn {
   border: 0;
-  width: 200px;
+  width: 150px;
   height: 50px;
+  margin: 0.4em;
   background-color: rgb(181, 202, 255);
   line-height: 40px;
   color: $niceWhite;
