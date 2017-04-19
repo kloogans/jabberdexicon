@@ -88,8 +88,8 @@ class App extends Component {
         </header>
         <main>
           <Search searchWord={this.searchWord} clicked={this.state.clicked} />
-          <NewWord term={this.state.term} addWord={this.addWord} clicked={this.state.clicked} exit={this.exit} />
-          <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} />
+          <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} clicked={this.state.clicked} exit={this.exit} />
+          <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} active={this.state.active} />
         </main>
         <footer>
           <div className='copyright'>
