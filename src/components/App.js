@@ -82,10 +82,13 @@ class App extends Component {
           </div>
         </header>
         <main>
-          {/* <Route exact path='/' component={Home} */}
-          <Search searchWord={this.searchWord} clicked={this.state.clicked} />
+          <Route exact path='/' render={() => <Search searchWord={this.searchWord} clicked={this.state.clicked} />} />
           <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} clicked={this.state.clicked} exit={this.exit} />
-          <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} active={this.state.active} />
+          {/* <Search searchWord={this.searchWord} clicked={this.state.clicked} /> */}
+          {/* <Route exact path='/' component={Search} /> */}
+          {/* <Route path='/entries/:id' component={Result} /> */}
+          <Route path='/entries/:id' render={() => <Result term={this.state.active.term} def={this.state.definition} clicked={this.state.clicked} active={this.state.active} />} />
+          {/* <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} active={this.state.active} /> */}
         </main>
         <footer>
           <div className='copyright'>

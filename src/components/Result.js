@@ -9,7 +9,7 @@ class Result extends Component {
     })
     return (
       <div>
-        {showWord}
+        {showWord[1]}
       </div>
     )
   }
