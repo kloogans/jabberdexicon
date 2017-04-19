@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import styles from '../styles/Search.scss'
 
 class Search extends Component {
   _submit = e => {
@@ -12,10 +11,10 @@ class Search extends Component {
   }
   render () {
     return (
-      <div className={styles.userSearch}>
+      <div className={this.props.clicked ? 'hidden' : 'userSearch'}>
         <form onSubmit={this._submit}>
-          <input onFocus={this._focus} type='text' ref='searchText' placeholder='Search' />
-          <input type='submit' value='Go' />
+          <textarea className='searchBox' onFocus={this._focus} ref='searchText' placeholder='Search' />
+          <button className='searchBtn' type='submit'>Go </button>
         </form>
       </div>
     )

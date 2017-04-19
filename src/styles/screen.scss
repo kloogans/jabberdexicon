@@ -1,6 +1,6 @@
 @import 'utility';
 @import url('https://fonts.googleapis.com/css?family=Roboto+Slab');
-
+@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 $base-text-size: 16px;
 $base-font-family: sans-serif;
 
@@ -20,22 +20,63 @@ body {
   font: $base-text-size / 1 $base-font-family;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
 .App {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100%;
+  width: 100%;
 }
 
 header {
-  margin: 0.6em;
+  margin: 0 auto;
+  width: 100%;
 
   h1 {
     font-family: 'Roboto Slab', serif;
     font-size: 3em;
     color: $niceWhite;
   }
+}
+
+.topNav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.addItemBtn {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin: 1em 1em 0 0;
+}
+
+button.addInfo {
+  outline: 0;
+  border: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  font-size: 2em;
+  color: $niceBlack;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 main {
@@ -46,6 +87,159 @@ main {
   margin: 0 auto;
   flex: 1;
   width: 100%;
+}
+
+// Word-Def Input
+
+input[type=text] {
+  border: 0;
+  width: 200px;
+  height: 60px;
+  margin: 0.3em auto;
+  font-size: 2em;
+  color: $niceBlack;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 195);
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.addWordDef {
+  margin: 0 auto;
+}
+
+textarea {
+  border: 0;
+  outline: 0;
+  line-height: 60px;
+  width: 200px;
+  height: 60px;
+  margin: 0.3em auto;
+  font-size: 2em;
+  color: $niceBlack;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 195);
+}
+
+.userInput {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em auto;
+}
+
+textarea.wordInput {
+  resize: none;
+  border-radius: 0;
+  background-color: transparent;
+  border-bottom: 3px dashed rgb(255, 253, 195);
+}
+
+textarea.defInput {
+  background-color: rgb(181, 228, 255);
+}
+
+button.defSubmit {
+  border: 0;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(181, 202, 255);
+  line-height: 40px;
+  color: $niceWhite;
+  font-size: 1.5em;
+  font-family: 'Roboto Slab';
+  cursor: pointer;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+
+  &:focus {
+    outline: 0;
+    background-color: rgb(225, 181, 255);
+  }
+
+  &:hover {
+    background-color: rgb(225, 181, 255);
+    box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Search
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.userSearch {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5em auto;
+}
+
+textarea.searchBox {
+  border-bottom: 3px dashed rgb(255, 253, 195);
+  width: 300px;
+  height: 60px;
+  margin: 0.3em auto;
+  font-size: 2em;
+  color: $niceBlack;
+  text-align: left;
+  background-color: transparent;
+  resize: none;
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+button.searchBtn {
+  border: 0;
+  width: 200px;
+  height: 50px;
+  background-color: rgb(181, 202, 255);
+  line-height: 40px;
+  color: $niceWhite;
+  font-size: 1.5em;
+  font-family: 'Roboto Slab';
+  cursor: pointer;
+  box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0);
+  transition: all 0.5s ease;
+
+  &:focus {
+    outline: 0;
+    background-color: rgb(225, 181, 255);
+  }
+
+  &:hover {
+    background-color: rgb(225, 181, 255);
+    box-shadow: 0 0 0 2000px rgba(0, 0, 0, 0.3);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}
+
+input[type=submit] {
+  width: 200px;
+  font-size: 2em;
+  margin: 0.5em auto;
+  outline: 0;
 }
 
 footer {

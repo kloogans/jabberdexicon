@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
-// import { BrowserRouter as Router } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom'
 import Search from './Search'
-import Definition from './Definition'
+import Result from './Result'
 import NewWord from './NewWord'
-import styles from '../styles/App.scss'
 const token = 'example'
 
 class App extends Component {
   state = {
     active: [],
-    search: []
+    search: [],
+    clicked: false
   }
 
   // When this react component mounts
@@ -60,22 +64,40 @@ class App extends Component {
     })
   }
 
+  _click = () => {
+    this.setState({ clicked: true })
+    console.log('click')
+  }
+
+  exit = () => {
+    this.setState({ clicked: false })
+  }
+
   render () {
-    return <div className={styles.App}>
-      <header>
-        <h1>Jabberdexicon</h1>
-      </header>
-      <main>
-        <NewWord term={this.state.term} addWord={this.addWord} />
-        <Search searchWord={this.searchWord} />
-        <Definition term={this.state.active.term} def={this.state.active.definition} />
-      </main>
-      <footer>
-        <div className={styles.copyright}>
-          <p>&copy; James O'Brien 2017 Fuck Yea</p>
+    return <Router>
+      <div className='App'>
+        <div className='addItemBtn'>
+          <button className='addInfo' onClick={this._click}>
+            <i className='fa fa-plus' />
+          </button>
         </div>
-      </footer>
-    </div>
+        <header>
+          <div className='topNav'>
+            <h1>Jabberdexicon</h1>
+          </div>
+        </header>
+        <main>
+          <Search searchWord={this.searchWord} clicked={this.state.clicked} />
+          <NewWord term={this.state.term} addWord={this.addWord} clicked={this.state.clicked} exit={this.exit} />
+          <Result term={this.state.active.term} def={this.state.active.definition} clicked={this.state.clicked} />
+        </main>
+        <footer>
+          <div className='copyright'>
+            {/* <p>&copy; James O'Brien 2017 Fuck Yea</p> */}
+          </div>
+        </footer>
+      </div>
+    </Router>
   }
 }
 

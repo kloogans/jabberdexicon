@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-class Definition extends Component {
+class Result extends Component {
   render () {
     return (
-      <div className='info'>
+      <div className={this.props.clicked ? 'hidden' : 'info'}>
         <h3>Word: {this.props.term}</h3>
         <p> Definition: {this.props.def}</p>
       </div>
@@ -11,4 +11,4 @@ class Definition extends Component {
   }
 }
 
-export default Definition
+export default Result
