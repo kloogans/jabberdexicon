@@ -72,10 +72,8 @@ class App extends Component {
         </header>
         <main>
           <Letters />
-          <Route exact path='/' component={Search} />
-          {/* <Route path='/search/:word' render={(props) => (
-          <Entry term='Foo' definition='Lorem ipsum' {...props} />
-        )} /> */}
+          <Route exact path='/' />
+          <Search />
           <Switch>
             />
             <Route path='/addword'
