@@ -12,6 +12,9 @@ class NewWord extends Component {
   _focus = (e) => {
     e.target.setSelectionRange(0, e.target.value.length)
   }
+  _exit = () => {
+    this.props.exit()
+  }
   render () {
     return (
       <div className='addWordDef'>
@@ -24,7 +27,7 @@ class NewWord extends Component {
                 <div className='controlBtns'>
                   <button className='defSubmit' type='submit'><i className='fa fa-check' /></button>
                   <NavLink to='/' className='exit'>
-                    <button className='exitBtn'><i className='fa fa-close' /> </button>
+                    <button onClick={this._exit} className='exitBtn'><i className='fa fa-close' /> </button>
                   </NavLink>
                 </div>
               </form>

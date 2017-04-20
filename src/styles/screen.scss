@@ -230,6 +230,28 @@ textarea.searchBox {
   }
 }
 
+ul.ShowSearch {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 400px;
+  list-style: none;
+}
+
+li.searchResult {
+  margin: 0.2em;
+  background-color: rgb(255, 253, 195);
+  padding: 0.3em;
+  border-radius: 5px;
+}
+
+a.searchLinks {
+  color: $niceBlack;
+  text-decoration: none;
+}
+
 button.searchBtn {
   border: 0;
   width: 200px;

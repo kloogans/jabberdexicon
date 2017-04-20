@@ -25,7 +25,7 @@ class ShowSearch extends Component {
       }
     })
     const words = filtered.map(word => {
-      return <li key={word.id}>
+      return <li className='searchResult' key={word.id}>
         <NavLink to={`/entries/${word.slug}`} className='searchLinks'>{word.term}</NavLink>
       </li>
     })

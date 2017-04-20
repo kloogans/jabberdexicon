@@ -40,10 +40,10 @@ class Search extends Component {
 
   render () {
     return (
-      <div className='userSearch'>
+      <div className={this.props.clicked ? 'hidden' : 'userSearch'}>
         <form onChange={this._go}>
           <textarea className='searchBox' onFocus={this._focus} ref='query' placeholder='Search' />
-          <button className='searchBtn' type='submit'>Go </button>
+          {/* <button className='searchBtn' type='submit'>Go </button> */}
         </form>
         <Route path='/search/' render={this.showSearchText} />
       </div>

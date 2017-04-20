@@ -17,7 +17,8 @@ const token = 'example'
 class App extends Component {
   state = {
     active: [],
-    search: []
+    search: [],
+    clicked: false
   }
 
   loadWords () {
@@ -53,12 +54,24 @@ class App extends Component {
       })
   }
 
+  clicked = () => {
+    this.setState({ clicked: true })
+  }
+
+  exit = () => {
+    this.setState({ clicked: false })
+  }
+
+  _click = () => {
+    this.clicked()
+  }
+
   render () {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
           <NavLink to='/addword/' className='homeLink'>
-            <button className='addInfo'>
+            <button onClick={this._click} className='addInfo'>
               <i className='fa fa-plus' />
             </button>
           </NavLink>
@@ -73,11 +86,10 @@ class App extends Component {
         <main>
           <Letters />
           <Route exact path='/' />
-          <Search />
+          <Search clicked={this.state.clicked} />
           <Switch>
-            />
             <Route path='/addword'
-              render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} /> }}
+              render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} exit={this.exit} clicked={this.state.clicked} /> }}
             />
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
