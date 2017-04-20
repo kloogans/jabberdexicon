@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
+  Switch,
+  NavLink,
   Route
 } from 'react-router-dom'
 import Search from './Search'
 import Result from './Result'
 import NewWord from './NewWord'
-import WordList from './Wordlist'
+// import WordList from './Wordlist'
+import Letters from './Letters'
+import BrowseLetter from './BrowseLetter.js'
 const token = 'example'
 
 class App extends Component {
   state = {
     active: [],
-    search: [],
-    clicked: false
+    search: []
   }
 
   loadWords () {
@@ -59,34 +62,33 @@ class App extends Component {
     })
   }
 
-  _click = () => {
-    this.setState({ clicked: true })
-    console.log('click')
-  }
-
-  exit = () => {
-    this.setState({ clicked: false })
-  }
-
   render () {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
-          <button className='addInfo' onClick={this._click}>
-            <i className='fa fa-plus' />
-          </button>
+          <NavLink to='/addword/' className='homeLink'>
+            <button className='addInfo'>
+              <i className='fa fa-plus' />
+            </button>
+          </NavLink>
         </div>
         <header>
           <div className='topNav'>
-            <h1>Jabberdexicon</h1>
+            <NavLink to='/' className='homeLink'>
+              <h1>Jabberdexicon</h1>
+            </NavLink>
           </div>
         </header>
         <main>
-          <Search searchWord={this.searchWord} clicked={this.state.clicked} />
-          <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} clicked={this.state.clicked} exit={this.exit} />
-          <Route path='/entries/:slug' component={Result} />
+          <Letters />
+          <Switch>
+            <Route exact path='/' render={(props) => { return <Search searchWord={this.searchWord} /> }} />
+            <Route path='/addword' render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} /> }} />
+            <Route path='/entries/:slug' component={Result} />
+            <Route path='/browse/:letter' component={BrowseLetter} />
+          </Switch>
 
-          <WordList active={this.state.active} />
+          {/* <WordList active={this.state.active} /> */}
         </main>
         <footer>
           <div className='copyright'>

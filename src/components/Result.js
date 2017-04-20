@@ -24,7 +24,7 @@ class Result extends Component {
     this.updateEntry()
   }
   render () {
-    return <div>
+    return <div className='info'>
       <h1>{this.state.term}</h1>
       <p>{this.state.definition}</p>
     </div>

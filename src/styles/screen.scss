@@ -128,7 +128,7 @@ input[type=text] {
   height: 100%;
   background-color: rgb(181, 226, 255);
   margin: 0 auto;
-  animation: fadeIn 1s ease;
+  animation: fadeIn 0.5s ease;
 }
 
 textarea {
@@ -211,6 +211,7 @@ form {
   justify-content: center;
   align-items: center;
   margin: 0.5em auto;
+  animation: fadeIn 0.5s ease;
 }
 
 textarea.searchBox {
@@ -253,12 +254,87 @@ button.searchBtn {
   }
 }
 
+.LetterBar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+.letterLinks {
+  text-decoration: none;
+  text-align: center;
+  margin: 0.1em;
+  color: $niceBlack;
+  transition: all 0.3s ease;
+
+  &:focus,
+  &:hover {
+    color: rgb(64, 115, 246);
+  }
+}
+
+.wordList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.BrowseLetter {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.selectedLetter {
+  color: $niceWhite;
+  font-size: 2em;
+  font-weight: heavy;
+  text-align: center;
+  padding: 0;
+}
+
+li.wordBlock {
+  width: inherit;
+  height: inherit;
+  text-align: center;
+  line-height: 50px;
+  padding: 0.2em;
+  border-radius: 5px;
+  margin: 0.5em;
+  background-color: rgb(255, 253, 237);
+  animation: fadeIn 0.3s ease;
+}
+
+a.word {
+  text-decoration: none;
+  color: $niceBlack;
+}
+
+.homeLink {
+  text-decoration: none;
+}
+
 .info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 1em;
+  border-radius: 5px;
+  background-color: rgb(255, 253, 237);
+  width: 200px;
+  height: inherit;
+  padding: 1em;
+}
+
+.info > h1 {
+  text-align: left;
 }
 
 input[type=submit] {

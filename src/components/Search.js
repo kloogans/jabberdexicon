@@ -11,7 +11,7 @@ class Search extends Component {
   }
   render () {
     return (
-      <div className={this.props.clicked ? 'hidden' : 'userSearch'}>
+      <div className='userSearch'>
         <form onSubmit={this._submit}>
           <textarea className='searchBox' onFocus={this._focus} ref='searchText' placeholder='Search' />
           <button className='searchBtn' type='submit'>Go </button>
