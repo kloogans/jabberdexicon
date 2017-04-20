@@ -9,10 +9,6 @@ class NewWord extends Component {
     this.refs.addDef.value = ''
   }
 
-  _exit = () => {
-    this.props.exit()
-  }
-
   _focus = (e) => {
     e.target.setSelectionRange(0, e.target.value.length)
   }

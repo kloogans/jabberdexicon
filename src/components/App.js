@@ -6,9 +6,10 @@ import {
   Route
 } from 'react-router-dom'
 import Search from './Search'
+import ShowSearch from './ShowSearch'
 import Result from './Result'
 import NewWord from './NewWord'
-// import WordList from './Wordlist'
+// import ShowWord from './ShowWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter.js'
 const token = 'example'
@@ -52,16 +53,6 @@ class App extends Component {
       })
   }
 
-  searchWord = (searchTerm) => {
-    const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
-    window.fetch(url)
-    .then(r => r.json())
-    .then(data => {
-      const searchFilter = data.filter(item => item.term.includes(searchTerm))
-      console.log(searchFilter)
-    })
-  }
-
   render () {
     return <Router>
       <div className='App'>
@@ -81,18 +72,23 @@ class App extends Component {
         </header>
         <main>
           <Letters />
+          <Route exact path='/' component={Search} />
+          {/* <Route path='/search/:word' render={(props) => (
+          <Entry term='Foo' definition='Lorem ipsum' {...props} />
+        )} /> */}
           <Switch>
-            <Route exact path='/' render={(props) => { return <Search searchWord={this.searchWord} /> }} />
-            <Route path='/addword' render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} /> }} />
+            />
+            <Route path='/addword'
+              render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} /> }}
+            />
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
+            <Route path='/search/:word' component={ShowSearch} />
           </Switch>
-
-          {/* <WordList active={this.state.active} /> */}
         </main>
         <footer>
           <div className='copyright'>
-            {/* <p>&copy; James O'Brien 2017 Fuck Yea</p> */}
+            {/* <p>&copy; James O'Brien 2017</p> */}
           </div>
         </footer>
       </div>
