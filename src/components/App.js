@@ -11,7 +11,7 @@ import Result from './Result'
 import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter.js'
-const token = 'vorpal'
+const token = 'example'
 
 class App extends Component {
   constructor (props) {
@@ -85,7 +85,7 @@ class App extends Component {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
-          <NavLink to='/addword/' className='homeLink'>
+          <NavLink to={this.state.clicked ? '/' : '/addword/'} className='homeLink'>
             <button onClick={this.clicked} className={this.state.clicked ? 'addInfo addWordRotate open' : 'addInfo addWordRotate'}>
               <i className='fa fa-plus' />
             </button>
