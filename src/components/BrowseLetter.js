@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-const token = 'example'
+const token = 'vorpal'
 
 class BrowseLetter extends Component {
   state = {

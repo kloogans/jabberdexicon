@@ -11,7 +11,7 @@ import Result from './Result'
 import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter.js'
-const token = 'example'
+const token = 'vorpal'
 
 class App extends Component {
   constructor (props) {
@@ -93,7 +93,7 @@ class App extends Component {
         </div>
         <header>
           <div className='topNav'>
-            <NavLink to='/' className='homeLink'>
+            <NavLink to='/' className='homeLink' onClick={this.exit}>
               <h1>Jabberdexicon</h1>
             </NavLink>
           </div>
