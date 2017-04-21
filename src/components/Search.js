@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter, Route } from 'react-router-dom'
-const token = 'example'
+const token = 'vorpal'
 
 class Search extends Component {
   state={
@@ -42,7 +42,7 @@ class Search extends Component {
     return (
       <div className={this.props.clicked ? 'hidden' : 'userSearch'}>
         <form onChange={this._go}>
-          <textarea className='searchBox' onFocus={this._focus} ref='query' placeholder='Search' />
+          <input type='search' className='searchBox' onFocus={this._focus} ref='query' placeholder='Search' />
           {/* <button className='searchBtn' type='submit'>Go </button> */}
         </form>
         <Route path='/search/' render={this.showSearchText} />

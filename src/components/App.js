@@ -11,13 +11,29 @@ import Result from './Result'
 import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter.js'
-const token = 'example'
+const token = 'vorpal'
 
 class App extends Component {
-  state = {
-    active: [],
-    search: [],
-    clicked: false
+  constructor (props) {
+    super(props)
+    this.state = {
+      clicked: false,
+      active: [],
+      search: []
+    }
+    this.clicked = this.clicked.bind(this)
+  }
+
+  // state = {
+  //   active: [],
+  //   search: [],
+  //   clicked: false
+  // }
+
+  clicked () {
+    this.setState(prevState => ({
+      clicked: !prevState.clicked
+    }))
   }
 
   loadWords () {
@@ -53,24 +69,24 @@ class App extends Component {
       })
   }
 
-  clicked = () => {
-    this.setState({ clicked: true })
-  }
+  // clicked = () => {
+  //   this.setState({ clicked: true })
+  // }
 
   exit = () => {
     this.setState({ clicked: false })
   }
 
-  _click = () => {
-    this.clicked()
-  }
+  // _click = () => {
+  //   this.clicked()
+  // }
 
   render () {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
           <NavLink to='/addword/' className='homeLink'>
-            <button onClick={this._click} className='addInfo'>
+            <button onClick={this.clicked} className={this.state.clicked ? 'addInfo addWordRotate open' : 'addInfo addWordRotate'}>
               <i className='fa fa-plus' />
             </button>
           </NavLink>

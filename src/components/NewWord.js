@@ -17,7 +17,7 @@ class NewWord extends Component {
   }
   render () {
     return (
-      <div className='addWordDef'>
+      <div className={this.props.clicked ? 'addWordDef' : 'hidden'}>
         <div className='overlay'>
           <div className='forms'>
             <div className='userInput'>

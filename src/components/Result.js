@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const token = 'example'
+const token = 'vorpal'
 
 class Result extends Component {
   state={}
@@ -26,6 +26,7 @@ class Result extends Component {
   render () {
     return <div className='info'>
       <h1>{this.state.term}</h1>
+      <hr />
       <p>{this.state.definition}</p>
     </div>
   }

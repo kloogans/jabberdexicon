@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-const token = 'example'
+const token = 'vorpal'
 
 class BrowseLetter extends Component {
   state = {
@@ -35,7 +35,6 @@ class BrowseLetter extends Component {
 
     return <div className='wordList'>
       <div className='selectedLetter'>&nbsp;{this.props.match.params.letter.toUpperCase()}</div>
-      <hr />
       <ul className='BrowseLetter'>
         {words}
       </ul>

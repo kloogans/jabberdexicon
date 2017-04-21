@@ -12,7 +12,6 @@ class Letters extends Component {
         </NavLink>
       </li>
     })
-
     return <ul className='LetterBar'>
       {searchLetters}
       <li>
