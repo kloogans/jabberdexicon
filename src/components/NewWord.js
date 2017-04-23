@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 class NewWord extends Component {
   _submit = e => {
@@ -25,6 +25,7 @@ class NewWord extends Component {
                 <textarea className='wordInput' onFocus={this._focus} ref='addWord' placeholder='Word' />
                 <textarea className='defInput' onFocus={this._focus} ref='addDef' placeholder='Definition' />
                 <div className='controlBtns'>
+                  {/* <NavLink to={} */}
                   <button className='defSubmit' type='submit'><i className='fa fa-check' /></button>
                   <NavLink to='/' className='exit'>
                     <button onClick={this._exit} className='exitBtn'><i className='fa fa-close' /> </button>
@@ -39,4 +40,4 @@ class NewWord extends Component {
   }
 }
 
-export default NewWord
+export default withRouter(NewWord)

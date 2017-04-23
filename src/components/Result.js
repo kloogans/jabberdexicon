@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 const token = 'vorpal'
 
 class Result extends Component {
-  state={}
+  state={ active: {} }
   updateEntry () {
     const slug = this.props.match.params.slug
     if (slug !== this.state.slug) {
@@ -24,11 +24,17 @@ class Result extends Component {
     this.updateEntry()
   }
   render () {
-    return <div className='info'>
-      <h1>{this.state.term}</h1>
-      <hr />
-      <p>{this.state.definition}</p>
-    </div>
+    const { active } = this.state
+    if (active) {
+      return <div className='info'>
+        <h1>{this.state.term}</h1>
+        <hr />
+        <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
+        {/* <p dangerouslySetInnerHTML={{__html: `${this.state.active.formatted_definition}`}} /> */}
+      </div>
+    } else {
+      return <p> Loading... </p>
+    }
   }
 }
 

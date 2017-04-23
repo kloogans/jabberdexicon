@@ -18,17 +18,10 @@ class App extends Component {
     super(props)
     this.state = {
       clicked: false,
-      active: [],
-      search: []
+      active: {}
     }
     this.clicked = this.clicked.bind(this)
   }
-
-  // state = {
-  //   active: [],
-  //   search: [],
-  //   clicked: false
-  // }
 
   clicked () {
     this.setState(prevState => ({
@@ -57,36 +50,34 @@ class App extends Component {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        'entry': {
-          'term': newTerm,
-          'definition': newDef
+        entry: {
+          term: newTerm,
+          definition: newDef
         }
       })
     }).then(r => r.json())
       .then(data => {
-        this.loadWords()
-        console.log(data)
+        if (data.term[0] === 'has already been taken') {
+          window.alert(`${newTerm} already exists!`)
+        } else {
+          window.alert(`${newTerm} was created successfully`)
+          this.props.history.push(`/entry/${data.slug}`)
+        }
       })
   }
-
-  // clicked = () => {
-  //   this.setState({ clicked: true })
-  // }
 
   exit = () => {
     this.setState({ clicked: false })
   }
-
-  // _click = () => {
-  //   this.clicked()
-  // }
 
   render () {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
           <NavLink to={this.state.clicked ? '/' : '/addword/'} className='homeLink'>
-            <button onClick={this.clicked} className={this.state.clicked ? 'addInfo addWordRotate open' : 'addInfo addWordRotate'}>
+            <button onClick={this.clicked}
+              className={this.state.clicked ? 'addInfo addWordRotate open' : 'addInfo addWordRotate'
+            }>
               <i className='fa fa-plus' />
             </button>
           </NavLink>
@@ -104,7 +95,15 @@ class App extends Component {
           <Search clicked={this.state.clicked} />
           <Switch>
             <Route path='/addword'
-              render={(props) => { return <NewWord term={this.state.term} addWord={this.addWord} active={this.state.active} exit={this.exit} clicked={this.state.clicked} /> }}
+              render={(props) => {
+                return <NewWord
+                  term={this.state.term}
+                  addWord={this.addWord}
+                  active={this.state.active}
+                  exit={this.exit}
+                  clicked={this.state.clicked} />
+              }
+            }
             />
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
@@ -113,7 +112,7 @@ class App extends Component {
         </main>
         <footer>
           <div className='copyright'>
-            {/* <p>&copy; James O'Brien 2017</p> */}
+            <p>&copy; James O'Brien 2017</p>
           </div>
         </footer>
       </div>

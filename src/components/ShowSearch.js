@@ -30,8 +30,17 @@ class ShowSearch extends Component {
       </li>
     })
 
+    let noMatch
+
+    if (filtered.length === 0) {
+      noMatch = <div>
+        <p>Sorry, no matches found.</p>
+      </div>
+    }
+
     return <ul className='ShowSearch'>
       {words}
+      {noMatch}
     </ul>
   }
 }

@@ -35,6 +35,7 @@ class Search extends Component {
   }
 
   _focus = (e) => {
+    e.preventDefault()
     e.target.setSelectionRange(0, e.target.value.length)
   }
 
@@ -42,7 +43,7 @@ class Search extends Component {
     return (
       <div className={this.props.clicked ? 'hidden' : 'userSearch'}>
         <form onChange={this._go}>
-          <input type='search' className='searchBox' onFocus={this._focus} ref='query' placeholder='Search' />
+          <input type='search' className='searchBox' onFocus={this._focus} onSubmit={this.preventDefault} ref='query' placeholder='Search' />
           {/* <button className='searchBtn' type='submit'>Go </button> */}
         </form>
         <Route path='/search/' />
