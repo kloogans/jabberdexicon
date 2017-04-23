@@ -24,6 +24,11 @@ class Result extends Component {
     this.updateEntry()
   }
 
+  _edit = () => {
+    this.props.history.push(`/edit/${this.props.match.params.slug}`)
+    console.log('click')
+  }
+
   _delete = () => {
     if (window.confirm('Are you sure?')) {
       const slug = this.props.match.params.slug
@@ -42,10 +47,14 @@ class Result extends Component {
         <label>{this.state.term}</label>
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
-        {/* <p dangerouslySetInnerHTML={{__html: `${this.state.active.formatted_definition}`}} /> */}
-        <button className='deleteBtn' onClick={this._delete}>
-          <i className='fa fa-trash' />
-        </button>
+        <div className='editDeleteBtns'>
+          <button className='deleteBtn' onClick={this._delete}>
+            <i className='fa fa-trash' />
+          </button>
+          <button className='editBtn' onClick={this._edit}>
+            <i className='fa fa-edit' />
+          </button>
+        </div>
       </div>
     } else {
       return <p> Loading... </p>

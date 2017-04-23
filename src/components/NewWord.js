@@ -15,6 +15,11 @@ class NewWord extends Component {
   _exit = () => {
     this.props.exit()
   }
+
+  noWord = () => {
+    window.alert('Word and Definition must be filled out. Try again.')
+  }
+
   render () {
     return (
       <div className={this.props.clicked ? 'addWordDef' : 'hidden'}>
@@ -26,7 +31,7 @@ class NewWord extends Component {
                 <textarea className='defInput' onFocus={this._focus} ref='addDef' placeholder='Definition' />
                 <div className='controlBtns'>
                   {/* <NavLink to={} */}
-                  <button className='defSubmit' type='submit'><i className='fa fa-check' /></button>
+                  <button className='defSubmit' type='submit' onClick={this._exit}><i className='fa fa-check' /></button>
                   <NavLink to='/' className='exit'>
                     <button onClick={this._exit} className='exitBtn'><i className='fa fa-close' /> </button>
                   </NavLink>

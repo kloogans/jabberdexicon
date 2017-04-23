@@ -11,7 +11,8 @@ import ShowSearch from './ShowSearch'
 import Result from './Result'
 import NewWord from './NewWord'
 import Letters from './Letters'
-import BrowseLetter from './BrowseLetter.js'
+import BrowseLetter from './BrowseLetter'
+import EditItem from './EditItem'
 const token = 'test'
 
 class App extends Component {
@@ -19,7 +20,8 @@ class App extends Component {
     super(props)
     this.state = {
       clicked: false,
-      active: {}
+      active: {},
+      info: false
     }
     this.clicked = this.clicked.bind(this)
   }
@@ -109,6 +111,7 @@ class App extends Component {
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
             <Route path='/search/:word' component={ShowSearch} />
+            <Route path='/edit/:slug' component={EditItem} />
           </Switch>
         </main>
         <footer>
