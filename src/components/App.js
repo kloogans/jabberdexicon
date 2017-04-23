@@ -5,6 +5,7 @@ import {
   NavLink,
   Route
 } from 'react-router-dom'
+import Info from './Info'
 import Search from './Search'
 import ShowSearch from './ShowSearch'
 import Result from './Result'

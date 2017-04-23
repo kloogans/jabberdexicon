@@ -47,6 +47,7 @@ class Search extends Component {
           {/* <button className='searchBtn' type='submit'>Go </button> */}
         </form>
         <Route path='/search/' />
+        <p className={this.props.active === {} ? 'welcome' : 'hidden'}>Welcome to the Jabberdexicon.</p>
       </div>
     )
   }

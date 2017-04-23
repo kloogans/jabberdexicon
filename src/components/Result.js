@@ -27,7 +27,7 @@ class Result extends Component {
     const { active } = this.state
     if (active) {
       return <div className='info'>
-        <h1>{this.state.term}</h1>
+        <label>{this.state.term}</label>
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
         {/* <p dangerouslySetInnerHTML={{__html: `${this.state.active.formatted_definition}`}} /> */}
