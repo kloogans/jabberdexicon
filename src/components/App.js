@@ -111,7 +111,7 @@ class App extends Component {
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
             <Route path='/search/:word' component={ShowSearch} />
-            <Route path='/edit/:slug' component={EditItem} />
+            <Route path='/edit/:slug' render={(props) => { return <EditItem clicked={this.state.clicked} /> }} />
           </Switch>
         </main>
         <footer>

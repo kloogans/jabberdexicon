@@ -48,15 +48,6 @@ class EditWord extends Component {
 
   render () {
     return <div className='EditWordAll'>
-      {/* <p>Edit this word...</p>
-      <form onSubmit={this._submit} className='editBtn'>
-        <div className='word'>
-          {this.state.term}:
-        </div>
-        <textarea onFocus={this._focus} onChange={this._change} type='text' ref='updatedDef' value={this.state.definition} className='definition' />
-        <input type='submit' value='Update Definition' className='updateButton' />
-      </form> */}
-
       <div className='overlay'>
         <div className='forms'>
           <div className='userInput'>
