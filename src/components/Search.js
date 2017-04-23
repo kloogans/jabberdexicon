@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter, Route } from 'react-router-dom'
-const token = 'vorpal'
+const token = 'test'
 
 class Search extends Component {
   state={

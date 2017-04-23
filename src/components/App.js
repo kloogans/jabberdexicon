@@ -5,14 +5,14 @@ import {
   NavLink,
   Route
 } from 'react-router-dom'
-import Info from './Info'
+// import Info from './Info'
 import Search from './Search'
 import ShowSearch from './ShowSearch'
 import Result from './Result'
 import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter.js'
-const token = 'vorpal'
+const token = 'test'
 
 class App extends Component {
   constructor (props) {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const token = 'vorpal'
+const token = 'test'
 
 class Result extends Component {
   state={ active: {} }
@@ -23,6 +23,18 @@ class Result extends Component {
   componentDidUpdate () {
     this.updateEntry()
   }
+
+  _delete = () => {
+    if (window.confirm('Are you sure?')) {
+      const slug = this.props.match.params.slug
+      const url = `https://jabberdexicon.herokuapp.com/entries/${slug}?access_token=${token}`
+      window.fetch(url, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      }).then(this.setState({active: {}}))
+     .then(this.props.history.push('/'))
+    }
+  }
   render () {
     const { active } = this.state
     if (active) {
@@ -31,6 +43,9 @@ class Result extends Component {
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
         {/* <p dangerouslySetInnerHTML={{__html: `${this.state.active.formatted_definition}`}} /> */}
+        <button className='deleteBtn' onClick={this._delete}>
+          <i className='fa fa-trash' />
+        </button>
       </div>
     } else {
       return <p> Loading... </p>
