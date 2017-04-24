@@ -59,7 +59,7 @@ class Result extends Component {
             <TwitterButton url={url} className='twitterButton'>
               <i className='fa fa-twitter' />
             </TwitterButton>
-            <RedditButton url={url} className='redditButton'>
+            <RedditButton title={`The meaning of ${this.state.term} on Jabberdexicon`} url={url} className='redditButton'>
               <i className='fa fa-reddit-alien' />
             </RedditButton>
           </div>

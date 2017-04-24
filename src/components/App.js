@@ -25,13 +25,13 @@ class App extends Component {
     }
     this.clicked = this.clicked.bind(this)
   }
-
+  // Toggle click true/false
   clicked () {
     this.setState(prevState => ({
       clicked: !prevState.clicked
     }))
   }
-
+  // Fills empty object in 'active' state
   loadWords () {
     const url = `https://jabberdexicon.herokuapp.com/entries?access_token=${token}`
     window.fetch(url)
@@ -69,6 +69,7 @@ class App extends Component {
       })
   }
 
+  // Exit NewWord component
   exit = () => {
     this.setState({ clicked: false })
   }
