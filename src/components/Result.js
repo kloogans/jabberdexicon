@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const token = 'test'
+const token = 'vorpal'
 
 class Result extends Component {
   state={ active: {} }
@@ -45,18 +45,18 @@ class Result extends Component {
     if (active) {
       return <div className='info'>
         <div className='titleBar'>
-          <label>{this.state.term}</label>
-          <div className='editDeleteBtns'>
-            <button className='editBtn' onClick={this._edit}>
-              <i className='fa fa-edit' />
-            </button>
-            <button className='deleteBtn' onClick={this._delete}>
-              <i className='fa fa-trash' />
-            </button>
-          </div>
+          <h1>{this.state.term}</h1>
         </div>
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
+        <div className='editDeleteBtns'>
+          <button className='editBtn' onClick={this._edit}>
+            <i className='fa fa-edit' />
+          </button>
+          <button className='deleteBtn' onClick={this._delete}>
+            <i className='fa fa-trash' />
+          </button>
+        </div>
       </div>
     } else {
       return <p> Loading... </p>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const token = 'test'
+const token = 'vorpal'
 
 class EditWord extends Component {
   state = {}
@@ -47,12 +47,12 @@ class EditWord extends Component {
   }
 
   render () {
-    return <div className='EditWordAll'>
+    return <div>
       <div className='overlay'>
         <div className='forms'>
           <div className='userInput'>
             <form onSubmit={this._submit}>
-              <div className='wordInput'>
+              <div className='wordEdit'>
                 {this.state.term}
               </div>
               <textarea className='defInput' onFocus={this._focus} onChange={this._change} ref='editedDef' placeholder='New Definition' />

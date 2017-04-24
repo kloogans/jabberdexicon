@@ -13,7 +13,7 @@ import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter'
 import EditItem from './EditItem'
-const token = 'test'
+const token = 'vorpal'
 
 class App extends Component {
   constructor (props) {
@@ -111,7 +111,7 @@ class App extends Component {
             <Route path='/entries/:slug' component={Result} />
             <Route path='/browse/:letter' component={BrowseLetter} />
             <Route path='/search/:word' component={ShowSearch} />
-            <Route path='/edit/:slug' render={(props) => { return <EditItem clicked={this.state.clicked} /> }} />
+            <Route path='/edit/:slug' component={EditItem} />
           </Switch>
         </main>
         <footer>
