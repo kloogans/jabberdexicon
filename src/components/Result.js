@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FacebookButton, TwitterButton } from 'react-social'
 const token = 'vorpal'
 
 class Result extends Component {
@@ -42,6 +43,7 @@ class Result extends Component {
   }
   render () {
     const { active } = this.state
+    const url = `http://jabberdexicon.jamesobrien.surge.sh/entries/${this.state.slug}`
     if (active) {
       return <div className='info'>
         <div className='titleBar'>
@@ -50,6 +52,12 @@ class Result extends Component {
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
         <div className='editDeleteBtns'>
+          <FacebookButton url={url} appId={419861715049229} className='facebookButton'>
+            <i className='fa fa-facebook' />
+          </FacebookButton>
+          <TwitterButton url={url} className='twitterButton'>
+            <i className='fa fa-twitter' />
+          </TwitterButton>
           <button className='editBtn' onClick={this._edit}>
             <i className='fa fa-edit' />
           </button>
