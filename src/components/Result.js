@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FacebookButton, TwitterButton, RedditButton } from 'react-social'
-const token = 'vorpal'
+const token = 'example'
 
 class Result extends Component {
   state={ active: {} }

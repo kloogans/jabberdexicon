@@ -33,7 +33,7 @@ body,
   height: 100%;
   max-width: 800px;
   background-color: #bcaa99;
-  box-shadow: 0 0 10px 0.5;
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.42);
 }
 
 img {
@@ -80,7 +80,22 @@ code {
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  margin: 1em 1em 0 0;
+  margin: 1em;
+}
+
+button.infoBtn {
+  border: none;
+  background-color: transparent;
+  font-size: 2em;
+  color: rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.5s ease;
+
+  &:focus,
+  &:hover {
+    outline: 0;
+    color: rgb(242, 126, 101);
+  }
 }
 
 button.addInfo {
@@ -150,6 +165,7 @@ input[type=text] {
 
 .hidden {
   display: none;
+  transition: 0.5s ease;
 }
 
 @keyframes fadeIn {
@@ -327,8 +343,12 @@ button.searchBtn {
   }
 }
 
+.welcomeText {
+  max-width: 400px;
+}
+
 p.welcome {
-  font-size: 0.6em;
+  font-size: 1em;
   color: $niceWhite;
 }
 

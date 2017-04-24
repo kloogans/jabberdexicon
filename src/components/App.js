@@ -13,7 +13,7 @@ import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter'
 import EditItem from './EditItem'
-const token = 'vorpal'
+const token = 'example'
 
 class App extends Component {
   constructor (props) {
@@ -28,7 +28,8 @@ class App extends Component {
   // Toggle click true/false
   clicked () {
     this.setState(prevState => ({
-      clicked: !prevState.clicked
+      clicked: !prevState.clicked,
+      info: false
     }))
   }
   // Fills empty object in 'active' state
@@ -71,13 +72,23 @@ class App extends Component {
 
   // Exit NewWord component
   exit = () => {
-    this.setState({ clicked: false })
+    this.setState({
+      clicked: false
+    })
+  }
+
+  infoClick = () => {
+    this.setState({ info: true })
+    console.log('click')
   }
 
   render () {
     return <Router>
       <div className='App'>
         <div className='addItemBtn'>
+          {/* <button onClick={this.infoClick} className='infoBtn'>
+            <i className='fa fa-info' />
+          </button> */}
           <NavLink to={this.state.clicked ? '/' : '/addword/'} className='homeLink'>
             <button onClick={this.clicked}
               className={this.state.clicked ? 'addInfo addWordRotate open' : 'addInfo addWordRotate'
@@ -97,6 +108,7 @@ class App extends Component {
           <Letters />
           <Route exact path='/' />
           <Search clicked={this.state.clicked} />
+          {/* <Info infoClicked={this.state.info} /> */}
           <Switch>
             <Route path='/addword'
               render={(props) => {
