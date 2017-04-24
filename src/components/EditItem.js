@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-const token = 'example'
+const token = 'vorpal'
 
 class EditWord extends Component {
   state = {}

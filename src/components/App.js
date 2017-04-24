@@ -13,7 +13,7 @@ import NewWord from './NewWord'
 import Letters from './Letters'
 import BrowseLetter from './BrowseLetter'
 import EditItem from './EditItem'
-const token = 'example'
+const token = 'vorpal'
 
 class App extends Component {
   constructor (props) {
