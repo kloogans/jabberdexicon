@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { FacebookButton, TwitterButton } from 'react-social'
+import { FacebookButton, TwitterButton, RedditButton } from 'react-social'
 const token = 'vorpal'
 
 class Result extends Component {
@@ -51,19 +51,26 @@ class Result extends Component {
         </div>
         <hr />
         <p dangerouslySetInnerHTML={{__html: `${this.state.formatted_definition}`}} />
-        <div className='editDeleteBtns'>
-          <FacebookButton url={url} appId={419861715049229} className='facebookButton'>
-            <i className='fa fa-facebook' />
-          </FacebookButton>
-          <TwitterButton url={url} className='twitterButton'>
-            <i className='fa fa-twitter' />
-          </TwitterButton>
-          <button className='editBtn' onClick={this._edit}>
-            <i className='fa fa-edit' />
-          </button>
-          <button className='deleteBtn' onClick={this._delete}>
-            <i className='fa fa-trash' />
-          </button>
+        <div className='lowerButtons'>
+          <div className='socialButtons'>
+            <FacebookButton url={url} appId={419861715049229} className='facebookButton'>
+              <i className='fa fa-facebook' />
+            </FacebookButton>
+            <TwitterButton url={url} className='twitterButton'>
+              <i className='fa fa-twitter' />
+            </TwitterButton>
+            <RedditButton url={url} className='redditButton'>
+              <i className='fa fa-reddit-alien' />
+            </RedditButton>
+          </div>
+          <div className='editDeleteBtns'>
+            <button className='editBtn' onClick={this._edit}>
+              <i className='fa fa-pencil' />
+            </button>
+            <button className='deleteBtn' onClick={this._delete}>
+              <i className='fa fa-trash' />
+            </button>
+          </div>
         </div>
       </div>
     } else {
